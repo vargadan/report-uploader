@@ -1,0 +1,28 @@
+spring:
+   application:
+      name: report-uploader
+   rabbitmq:
+      addresses: rabbitmq
+   cloud:
+      stream:
+        bindings:
+          statusUpdates:
+            destination: statusUpdatesTopic
+            content-type: application/json
+            group: report-uploader
+          reportFiles:
+            destination: reportFileTopic
+            content-type: text/plain
+            group: report-uploader
+          rabbit:
+            binder:
+              nodes: rabbitmq
+              adminAddresses: rabbitmq
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://identity-service:8080/user		
+logging:
+    level:
+      org.springframework: INFO
+      org.springframework.security: DEBUG
