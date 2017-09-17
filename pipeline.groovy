@@ -4,10 +4,10 @@ node('maven') {
    	def DEV_PROJECT = "reportengine-dev"
    	def IT_PROJECT = "reportengine-it"
    	def PORT = 8080
-   	def APP_NAME = "report-order-manager"
+   	def APP_NAME = "report-uploader"
 
    	stage ('Build') {
-   		git branch: 'master', url: 'https://github.com/vargadan/report-order-manager.git'
+   		git branch: 'master', url: 'https://github.com/vargadan/report-uploader.git'
    		sh "${mvnCmd} clean install -DskipTests=true"
    	}
    	
