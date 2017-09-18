@@ -22,7 +22,7 @@
       <repositories>
         <repository>
           <id>central</id>
-          <url>http://central</url>
+          <url>http://nexus:8081/content/groups/public/</url>
           <releases><enabled>true</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </repository>
@@ -30,7 +30,7 @@
      <pluginRepositories>
         <pluginRepository>
           <id>central</id>
-          <url>http://central</url>
+          <url>http://nexus:8081/content/groups/public/</url>
           <releases><enabled>true</enabled></releases>
           <snapshots><enabled>true</enabled></snapshots>
         </pluginRepository>
