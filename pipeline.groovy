@@ -18,9 +18,9 @@ node('maven') {
  //  	}
 
    
-   	stage ('Static Analysis') {
- 		sh "${mvnCmd} org.jacoco:jacoco-maven-plugin:report sonar:sonar -Dsonar.host.url=http://sonarqube:9000/ -DskipTests=true"
-   	}
+//   	stage ('Static Analysis') {
+// 		sh "${mvnCmd} org.jacoco:jacoco-maven-plugin:report sonar:sonar -Dsonar.host.url=http://sonarqube:9000/ -DskipTests=true"
+//   	}
    	
    	stage ('Test') {
    		sh "${mvnCmd} test"
