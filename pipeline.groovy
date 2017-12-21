@@ -8,7 +8,7 @@ node('maven') {
 
    	stage ('Build') {
    		git branch: 'master', url: 'https://github.com/vargadan/report-uploader.git'
-   		sh "${mvnCmd} clean install -DskipTests=true"
+   		sh "${mvnCmd} clean package -DskipTests=true"
    	}
    	
    	def version = version()
