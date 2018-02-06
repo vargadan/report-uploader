@@ -34,7 +34,7 @@ node('maven') {
    	stage ('Deploy DEV') {
 	   // clean up. keep the image stream
 	   sh "oc project ${DEV_PROJECT}"
-	   sh "oc delete bc,dc,svc,route -l app=${APP_NAME} -n ${DEV_PROJECT}"
+	   sh "oc delete buildconfigs,deploymentconfigs,services,routes -l app=${APP_NAME} -n ${DEV_PROJECT}"
 	   // create build. override the exit code since it complains about exising imagestream
 	   sh "${mvnCmd} fabric8:deploy -DskipTests"
 	}
@@ -47,7 +47,7 @@ node('maven') {
 	   // tag for stage
 	   sh "oc tag ${DEV_PROJECT}/${APP_NAME}:latest ${IT_PROJECT}/${APP_NAME}:${version}"
 	   // clean up. keep the imagestream
-	   sh "oc delete bc,dc,svc,route -l app=${APP_NAME} -n ${IT_PROJECT}"
+	   sh "oc delete buildconfigs,deploymentconfigs,services,routes -l app=${APP_NAME} -n ${IT_PROJECT}"
 	   // deploy stage image
 	   sh "oc new-app ${APP_NAME}:${version} -n ${IT_PROJECT}" 
 	   // delete service and route because new-app created them with wrong port
