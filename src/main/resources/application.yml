@@ -1,0 +1,15 @@
+management:
+  security:
+    enabled:
+      false
+logging:
+   level:
+      org.springframework: INFO
+      org.springframework.security: DEBUG
+spring:
+  rabbitmq:
+      addresses: rabbitmq
+security:
+   oauth2:
+      resource:
+         userInfoUri: http://identity-server:8080/user

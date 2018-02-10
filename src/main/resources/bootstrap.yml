@@ -2,8 +2,8 @@ spring:
    application:
       name: report-uploader
    cloud:
-      config:
-         uri: http://report-config-server:8080/
+#      config:
+#         uri: http://report-config-server:8080/
       stream:
         bindings:
           statusUpdates:

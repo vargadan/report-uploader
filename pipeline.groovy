@@ -12,24 +12,11 @@ node('maven') {
    	}
    	
    	def version = version()
-   
- //  	stage ('Test SonarQube') {
- //  		sh "curl http://sonarqube:9000/batch/global"
- //  	}
-
-   
- // 	stage ('Static Analysis') {
- //		sh "${mvnCmd} org.jacoco:jacoco-maven-plugin:report sonar:sonar -Dsonar.host.url=http://sonarqube:9000/ -DskipTests=true"
- //  	}
    	
    	stage ('Test') {
    		sh "${mvnCmd} test"
    		step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
    	}
-   
- //  	stage ('Push to Nexus') {
- //  		sh "${mvnCmd} deploy -DskipTests=true"
- //  	}
 
    	stage ('Deploy DEV') {
 	   // clean up. keep the image stream
