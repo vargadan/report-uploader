@@ -4,7 +4,7 @@ node('maven') {
    	def mvnCmd = "mvn -s configuration/maven-cicd-settings.xml"
    	def CICD_PROJECT = "ctr-cicd"
    	def DEV_PROJECT = "ctr-dev"
-   	def QA_PROJECT = "ctr-it"
+   	def IT_PROJECT = "ctr-it"
    	def PROD_PROJECT = "ctr-prod"
    	def PORT = 8080
    	def GIT_URL = "https://github.com/vargadan/${APP_NAME}.git"
