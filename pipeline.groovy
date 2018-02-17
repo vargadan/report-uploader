@@ -56,8 +56,8 @@ def envSetup(project, appName, version, port, recreate) {
 	//now we can create the app since it has either been deleted or it did not exist at all
  	sh "oc new-app ${appName}:${version} -n ${project}"
    	sh "oc delete service,routes -l app=${appName} -n ${project}"
-   	sh "oc create service clusterip dummy-report-factory --tcp=${port}:${port} -n ${project}"
-   	sh "oc expose service dummy-report-factory -n ${project}"	
+   	sh "oc create service clusterip {appName} --tcp=${port}:${port} -n ${project}"
+   	sh "oc expose service {appName} -n ${project}"	
 }
 
 def version() {
